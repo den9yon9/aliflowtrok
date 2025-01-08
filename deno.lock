@@ -1,0 +1,75 @@
+{
+  "version": "4",
+  "specifiers": {
+    "jsr:@std/cli@*": "1.0.9",
+    "jsr:@std/path@^1.0.8": "1.0.8",
+    "jsr:@trok/trok@0.1.25": "0.1.25",
+    "jsr:@trok/trok@0.1.26": "0.1.26",
+    "jsr:@trok/trok@0.1.27": "0.1.27",
+    "jsr:@trok/trok@0.1.28": "0.1.28",
+    "npm:@types/node@*": "22.5.4",
+    "npm:preact-render-to-string@^6.5.12": "6.5.12_preact@10.25.4",
+    "npm:preact@*": "10.25.4",
+    "npm:preact@10.25.4": "10.25.4"
+  },
+  "jsr": {
+    "@std/cli@1.0.9": {
+      "integrity": "557e5865af000efbf3f737dcfea5b8ab86453594f4a9cd8d08c9fa83d8e3f3bc"
+    },
+    "@std/path@1.0.8": {
+      "integrity": "548fa456bb6a04d3c1a1e7477986b6cffbce95102d0bb447c67c4ee70e0364be"
+    },
+    "@trok/trok@0.1.25": {
+      "integrity": "ffb213e578e444da3fb6b538a31595c86093c6c5805631e2db62f4a9cedc98d2",
+      "dependencies": [
+        "jsr:@std/path",
+        "npm:preact-render-to-string",
+        "npm:preact@10.25.4"
+      ]
+    },
+    "@trok/trok@0.1.26": {
+      "integrity": "52594a9592481d80459ec804a20e7b063b7e95bed8549d8aae55e54b8eba127e",
+      "dependencies": [
+        "jsr:@std/path",
+        "npm:preact-render-to-string",
+        "npm:preact@10.25.4"
+      ]
+    },
+    "@trok/trok@0.1.27": {
+      "integrity": "f516b2f309703c2f86979c33842fad59b4700e21637115cdb0148ef60f31f650",
+      "dependencies": [
+        "jsr:@std/path",
+        "npm:preact-render-to-string",
+        "npm:preact@10.25.4"
+      ]
+    },
+    "@trok/trok@0.1.28": {
+      "integrity": "f10eb0618e7be6c280568b9c2d8075e112f573647ebc45d88056fb736c9fe370",
+      "dependencies": [
+        "jsr:@std/path",
+        "npm:preact-render-to-string",
+        "npm:preact@10.25.4"
+      ]
+    }
+  },
+  "npm": {
+    "@types/node@22.5.4": {
+      "integrity": "sha512-FDuKUJQm/ju9fT/SeX/6+gBzoPzlVCzfzmGkwKvRHQVxi4BntVbyIwf6a4Xn62mrvndLiml6z/UBXIdEVjQLXg==",
+      "dependencies": [
+        "undici-types"
+      ]
+    },
+    "preact-render-to-string@6.5.12_preact@10.25.4": {
+      "integrity": "sha512-FpU7/cRipZo4diSWQq7gZWVp+Px76CtVduJZNvQwVzynDsAIxKteMrjCCGPbM2oEasReoDffaeMCMlaur9ohIg==",
+      "dependencies": [
+        "preact"
+      ]
+    },
+    "preact@10.25.4": {
+      "integrity": "sha512-jLdZDb+Q+odkHJ+MpW/9U5cODzqnB+fy2EiHSZES7ldV5LK7yjlVzTp7R8Xy6W6y75kfK8iWYtFVH7lvjwrCMA=="
+    },
+    "undici-types@6.19.8": {
+      "integrity": "sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw=="
+    }
+  }
+}
