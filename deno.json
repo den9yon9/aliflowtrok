@@ -1,1 +1,12 @@
-{}
+{
+  "name": "@trok/aliflow",
+  "exports": {
+    ".": "./server.tsx"
+  },
+  "version": "0.1.0",
+  "license": "MIT",
+  "fmt": {
+    "lineWidth": 80,
+    "indentWidth": 2
+  }
+}
