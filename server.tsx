@@ -1,5 +1,5 @@
 /** @jsxRuntime automatic */
-/** @jsxImportSource preact */
+/** @jsxImportSource npm:preact@10.25.4 */
 import server from "jsr:@trok/trok@0.1.30/server";
 import { basename } from "jsr:@std/path@^1.0.8";
 import { render } from "npm:preact-render-to-string@^6.5.12";
