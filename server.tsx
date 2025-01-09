@@ -164,11 +164,18 @@ function Flows() {
           );
         })}
       </div>
-      <iframe
-        className="w-2/3 h-screen overflow-y-scroll "
-        src={`/${Deno.env.get("prefix")}`}
-      >
+      <iframe id="trok" className="w-2/3 h-screen overflow-y-scroll ">
       </iframe>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+          const kortIFrame = document.getElementById('kort')
+          const kortHref = location.href.replace('/flows', '')
+          kortIFrame.src = kortHref
+        `,
+        }}
+      >
+      </script>
     </div>
   );
 }
