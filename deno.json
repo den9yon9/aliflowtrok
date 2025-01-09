@@ -4,11 +4,14 @@
     ".": "./server.tsx",
     "./deploy": "./deploy.ts"
   },
-  "version": "0.1.5",
+  "version": "0.1.6",
   "license": "MIT",
   "fmt": {
     "lineWidth": 80,
     "indentWidth": 2
+  },
+  "tasks": {
+    "server": "deno serve -A --watch server.tsx"
   },
   "imports": {
     "preact": "npm:preact@^10.25.4"

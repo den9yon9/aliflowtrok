@@ -61,7 +61,8 @@ if (Deno.env.has("FLOWS_URL")) {
     const text = new TextDecoder().decode(data);
     flows = JSON.parse(text);
   } catch (err) {
-    console.log(`未找到流水线配置文件`, (err as Error).message);
+    console.error(`未找到流水线配置文件`, (err as Error).message);
+    throw err;
   }
 }
 
@@ -82,13 +83,11 @@ async function dispatch(task: FlowTask) {
 
 export default {
   async fetch(req: Request): Promise<Response> {
+    const { pathname } = new URL(req.url);
     const res = await server.fetch(req);
     if (res.status !== 404) return res;
-
-    const { pathname } = new URL(req.url);
-
     switch (`${req.method} ${pathname}`) {
-      case "GET /flows": {
+      case "GET /flows/": {
         return html(<Flows />);
       }
 
@@ -140,7 +139,7 @@ function Flows() {
           return (
             <form
               method="post"
-              action="/flows/dispatch"
+              action="./dispatch"
               key={`${item.origin}/${item.branch}`}
               className="shadow bg-base-100 rounded-2xl p-5 flex flex-col gap-2 border-primary"
             >
@@ -164,18 +163,12 @@ function Flows() {
           );
         })}
       </div>
-      <iframe id="trok" className="w-2/3 h-screen overflow-y-scroll ">
-      </iframe>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-          const trokIFrame = document.getElementById('trok')
-          const trokHref = location.href.replace('/flows', '')
-          trokIFrame.src = trokHref
-        `,
-        }}
+      <iframe
+        id="trok"
+        src=".."
+        className="w-2/3 h-screen overflow-y-scroll grow"
       >
-      </script>
+      </iframe>
     </div>
   );
 }
@@ -184,7 +177,9 @@ function Success() {
   return (
     <div className="w-screen">
       <p>任务提交成功</p>
-      <a className="btn btn-primary" href="/flows">回到首页</a>
+      <a className="btn btn-primary" href=".">
+        回到首页
+      </a>
     </div>
   );
 }
