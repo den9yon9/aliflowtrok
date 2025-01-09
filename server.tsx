@@ -3,6 +3,7 @@
 import server from "jsr:@trok/trok@0.1.28/server";
 import { basename } from "jsr:@std/path@^1.0.8";
 import { render } from "npm:preact-render-to-string@^6.5.12";
+import { resolve } from "jsr:@std/path@1.0.8";
 
 type Flow = {
   origin: string;
@@ -48,11 +49,21 @@ function html(jsxElement: preact.JSX.Element) {
   );
 }
 
-if (!Deno.env.has("FLOWS_URL")) throw new Error("require env.FLOWS_URL!");
+let flows: Flow[] = [];
 
-const flows = await fetch(Deno.env.get("FLOWS_URL")!).then((res) =>
-  res.json()
-) as Flow[];
+if (Deno.env.has("FLOWS_URL")) {
+  flows = await fetch(Deno.env.get("FLOWS_URL")!).then((res) =>
+    res.json()
+  ) as Flow[];
+} else {
+  try {
+    const data = Deno.readFileSync(resolve(Deno.cwd(), "flows.json"));
+    const text = new TextDecoder().decode(data);
+    flows = JSON.parse(text);
+  } catch (err) {
+    console.log(`未找到流水线配置文件`, (err as Error).message);
+  }
+}
 
 async function dispatch(task: FlowTask) {
   const flow = flows.find((item) =>

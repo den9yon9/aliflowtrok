@@ -2,6 +2,7 @@
   "version": "4",
   "specifiers": {
     "jsr:@std/cli@*": "1.0.9",
+    "jsr:@std/path@1.0.8": "1.0.8",
     "jsr:@std/path@^1.0.8": "1.0.8",
     "jsr:@trok/trok@0.1.25": "0.1.25",
     "jsr:@trok/trok@0.1.26": "0.1.26",
@@ -22,7 +23,7 @@
     "@trok/trok@0.1.25": {
       "integrity": "ffb213e578e444da3fb6b538a31595c86093c6c5805631e2db62f4a9cedc98d2",
       "dependencies": [
-        "jsr:@std/path",
+        "jsr:@std/path@^1.0.8",
         "npm:preact-render-to-string",
         "npm:preact@10.25.4"
       ]
@@ -30,7 +31,7 @@
     "@trok/trok@0.1.26": {
       "integrity": "52594a9592481d80459ec804a20e7b063b7e95bed8549d8aae55e54b8eba127e",
       "dependencies": [
-        "jsr:@std/path",
+        "jsr:@std/path@^1.0.8",
         "npm:preact-render-to-string",
         "npm:preact@10.25.4"
       ]
@@ -38,7 +39,7 @@
     "@trok/trok@0.1.27": {
       "integrity": "f516b2f309703c2f86979c33842fad59b4700e21637115cdb0148ef60f31f650",
       "dependencies": [
-        "jsr:@std/path",
+        "jsr:@std/path@^1.0.8",
         "npm:preact-render-to-string",
         "npm:preact@10.25.4"
       ]
@@ -46,7 +47,7 @@
     "@trok/trok@0.1.28": {
       "integrity": "f10eb0618e7be6c280568b9c2d8075e112f573647ebc45d88056fb736c9fe370",
       "dependencies": [
-        "jsr:@std/path",
+        "jsr:@std/path@^1.0.8",
         "npm:preact-render-to-string",
         "npm:preact@10.25.4"
       ]
