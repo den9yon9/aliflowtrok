@@ -164,7 +164,10 @@ function Flows() {
           );
         })}
       </div>
-      <iframe className="w-2/3 h-screen overflow-y-scroll " src="/">
+      <iframe
+        className="w-2/3 h-screen overflow-y-scroll "
+        src={`/${Deno.env.get("prefix")}`}
+      >
       </iframe>
     </div>
   );
