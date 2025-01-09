@@ -3,7 +3,7 @@
 import server from "jsr:@trok/trok@0.1.30/server";
 import { basename } from "jsr:@std/path@^1.0.8";
 import { render } from "npm:preact-render-to-string@^6.5.12";
-import { resolve } from "jsr:@std/path@1.0.8";
+import { extname, resolve } from "jsr:@std/path@1.0.8";
 
 type Flow = {
   origin: string;
@@ -67,6 +67,9 @@ if (Deno.env.has("FLOWS_URL")) {
 }
 
 export function isSameGitOrigin(a: string, b: string) {
+  const removeExtname = (pathname: string) =>
+    pathname.replace(extname(pathname), "");
+
   const parseGitOrigin = (origin: string) => {
     let cookedOrigin = origin;
     // 补全转换scp形式的origin
@@ -77,13 +80,15 @@ export function isSameGitOrigin(a: string, b: string) {
   };
 
   const [urlA, urlB] = [a, b].map(parseGitOrigin);
-  return urlA.host === urlB.host && urlA.pathname === urlB.pathname;
+  return urlA.host === urlB.host &&
+    removeExtname(urlA.pathname) === removeExtname(urlB.pathname);
 }
 
 async function dispatch(task: FlowTask) {
-  const flow = flows.find((item) =>
-    isSameGitOrigin(item.origin, task.origin) && item.branch === task.branch
-  );
+  const flow = flows.find((item) => {
+    return isSameGitOrigin(item.origin, task.origin) &&
+      item.branch === task.branch;
+  });
   if (!flow) return new Response("未找到此仓库或分支的流水线", { status: 404 });
   const res = await fetch(flow.webhook, {
     method: "POST",
@@ -180,7 +185,7 @@ function Flows() {
       <iframe
         id="trok"
         src=".."
-        className="w-2/3 h-screen overflow-y-scroll grow"
+        className="w-2/3 h-screen overflow-y-scroll grow bg-base-100 p-5"
       >
       </iframe>
     </div>
