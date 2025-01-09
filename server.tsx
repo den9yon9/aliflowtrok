@@ -66,9 +66,23 @@ if (Deno.env.has("FLOWS_URL")) {
   }
 }
 
+export function isSameGitOrigin(a: string, b: string) {
+  const parseGitOrigin = (origin: string) => {
+    let cookedOrigin = origin;
+    // 补全转换scp形式的origin
+    if (origin.startsWith("git@")) {
+      cookedOrigin = `ssh://${origin.replace(":", "/")}`;
+    }
+    return new URL(cookedOrigin);
+  };
+
+  const [urlA, urlB] = [a, b].map(parseGitOrigin);
+  return urlA.host === urlB.host && urlA.pathname === urlB.pathname;
+}
+
 async function dispatch(task: FlowTask) {
   const flow = flows.find((item) =>
-    item.origin === task.origin && item.branch === task.branch
+    isSameGitOrigin(item.origin, task.origin) && item.branch === task.branch
   );
   if (!flow) return new Response("未找到此仓库或分支的流水线", { status: 404 });
   const res = await fetch(flow.webhook, {
