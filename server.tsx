@@ -169,9 +169,9 @@ function Flows() {
       <script
         dangerouslySetInnerHTML={{
           __html: `
-          const kortIFrame = document.getElementById('kort')
-          const kortHref = location.href.replace('/flows', '')
-          kortIFrame.src = kortHref
+          const trokIFrame = document.getElementById('trok')
+          const trokHref = location.href.replace('/flows', '')
+          trokIFrame.src = trokHref
         `,
         }}
       >
