@@ -3,7 +3,7 @@
   "exports": {
     ".": "./server.tsx"
   },
-  "version": "0.1.3",
+  "version": "0.1.4",
   "license": "MIT",
   "fmt": {
     "lineWidth": 80,
