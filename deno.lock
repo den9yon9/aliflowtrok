@@ -12,7 +12,8 @@
     "npm:@types/node@*": "22.5.4",
     "npm:preact-render-to-string@^6.5.12": "6.5.12_preact@10.25.4",
     "npm:preact@*": "10.25.4",
-    "npm:preact@10.25.4": "10.25.4"
+    "npm:preact@10.25.4": "10.25.4",
+    "npm:preact@^10.25.4": "10.25.4"
   },
   "jsr": {
     "@std/cli@1.0.9": {
@@ -81,5 +82,10 @@
     "undici-types@6.19.8": {
       "integrity": "sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw=="
     }
+  },
+  "workspace": {
+    "dependencies": [
+      "npm:preact@^10.25.4"
+    ]
   }
 }

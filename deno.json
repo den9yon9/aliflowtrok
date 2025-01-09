@@ -8,5 +8,8 @@
   "fmt": {
     "lineWidth": 80,
     "indentWidth": 2
+  },
+  "imports": {
+    "preact": "npm:preact@^10.25.4"
   }
 }
