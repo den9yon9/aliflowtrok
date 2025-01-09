@@ -1,9 +1,10 @@
 {
   "name": "@trok/aliflow",
   "exports": {
-    ".": "./server.tsx"
+    ".": "./server.tsx",
+    "./deploy": "./deploy.ts"
   },
-  "version": "0.1.4",
+  "version": "0.1.5",
   "license": "MIT",
   "fmt": {
     "lineWidth": 80,

@@ -1,4 +1,4 @@
-import { join, resolve } from "jsr:@std/path";
+import { join, resolve } from "jsr:@std/path@1.0.8";
 
 function isEntityExistSync(filePath: string): boolean {
   try {
