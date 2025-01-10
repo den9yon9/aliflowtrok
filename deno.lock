@@ -11,6 +11,7 @@
     "jsr:@trok/trok@0.1.29": "0.1.29",
     "jsr:@trok/trok@0.1.30": "0.1.30",
     "jsr:@trok/trok@0.1.36": "0.1.36",
+    "jsr:@trok/trok@0.1.37": "0.1.37",
     "npm:@types/node@*": "22.5.4",
     "npm:preact-render-to-string@^6.5.12": "6.5.12_preact@10.25.4",
     "npm:preact@*": "10.25.4",
@@ -74,6 +75,13 @@
     },
     "@trok/trok@0.1.36": {
       "integrity": "9f07db057809ce96b73b80f1297a67d45aa857207386ce27b07baec971112105",
+      "dependencies": [
+        "npm:preact-render-to-string",
+        "npm:preact@10.25.4"
+      ]
+    },
+    "@trok/trok@0.1.37": {
+      "integrity": "bf9d3d3af61838a21a563ecf63493e5cb643ab228be828f01b0eba7d92faee75",
       "dependencies": [
         "npm:preact-render-to-string",
         "npm:preact@10.25.4"

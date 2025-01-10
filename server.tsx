@@ -159,7 +159,7 @@ function Flows() {
           return (
             <form
               method="post"
-              action="./dispatch"
+              action="../dispatch"
               key={`${item.origin}/${item.branch}`}
               className="shadow bg-base-100 rounded-2xl p-5 flex flex-col gap-2 border-primary"
             >
@@ -197,7 +197,7 @@ function Success() {
   return (
     <div className="w-screen">
       <p>任务提交成功</p>
-      <a className="btn btn-primary" href=".">
+      <a className="btn btn-primary" href="./flows/">
         回到首页
       </a>
     </div>
