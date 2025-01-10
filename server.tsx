@@ -119,7 +119,7 @@ export default {
           origin: search.get("origin")!,
           branch: search.get("branch")!,
           selector: search.get("selector")!,
-          from: "@trok/aliflow ui",
+          from: "@trok/aliflow.ui",
         });
       }
 
@@ -128,7 +128,7 @@ export default {
         const origin = data.repository.html_url;
         const branch = basename(data.ref);
         const selector = basename(data.compare);
-        return await dispatch({ origin, branch, selector, from: "@trok/aliflow github" });
+        return await dispatch({ origin, branch, selector, from: "@trok/aliflow.github" });
       }
 
       default:
