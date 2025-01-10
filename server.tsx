@@ -1,6 +1,6 @@
 /** @jsxRuntime automatic */
 /** @jsxImportSource npm:preact@10.25.4 */
-import server from "jsr:@trok/trok@0.1.30/server";
+import hub from "jsr:@trok/trok@0.1.36/hub";
 import { basename } from "jsr:@std/path@^1.0.8";
 import { render } from "npm:preact-render-to-string@^6.5.12";
 import { extname, resolve } from "jsr:@std/path@1.0.8";
@@ -103,14 +103,14 @@ async function dispatch(task: FlowTask) {
 export default {
   async fetch(req: Request): Promise<Response> {
     const { pathname } = new URL(req.url);
-    const res = await server.fetch(req);
+    const res = await hub.fetch(req);
     if (res.status !== 404) return res;
     switch (`${req.method} ${pathname}`) {
       case "GET /flows/": {
         return html(<Flows />);
       }
 
-      case "POST /flows/dispatch": {
+      case "POST /dispatch": {
         const text = await req.text();
         const search = new URLSearchParams(text);
         return await dispatch({
@@ -120,7 +120,7 @@ export default {
         });
       }
 
-      case "POST /flows/github": {
+      case "POST /github": {
         const data = await req.json() as GithubWebhookBody;
         const origin = data.repository.html_url;
         const branch = basename(data.ref);
