@@ -1,7 +1,7 @@
 /** @jsxRuntime automatic */
 /** @jsxImportSource npm:preact@10.25.4 */
 
-import hub from "jsr:@trok/trok@0.1.37/hub";
+import hub from "jsr:@trok/trok@0.1.38/hub";
 import { basename } from "jsr:@std/path@^1.0.8";
 import { render } from "npm:preact-render-to-string@^6.5.12";
 import { extname, resolve } from "jsr:@std/path@1.0.8";
@@ -18,6 +18,7 @@ type FlowTask = {
   origin: string;
   branch: string;
   selector: string;
+  from: string;
 };
 
 type GithubWebhookBody = {
@@ -118,6 +119,7 @@ export default {
           origin: search.get("origin")!,
           branch: search.get("branch")!,
           selector: search.get("selector")!,
+          from: "@trok/aliflow ui",
         });
       }
 
@@ -126,7 +128,7 @@ export default {
         const origin = data.repository.html_url;
         const branch = basename(data.ref);
         const selector = basename(data.compare);
-        return await dispatch({ origin, branch, selector });
+        return await dispatch({ origin, branch, selector, from: "@trok/aliflow github" });
       }
 
       default:
