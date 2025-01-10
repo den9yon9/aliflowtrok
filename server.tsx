@@ -94,7 +94,7 @@ async function dispatch(task: FlowTask) {
   if (!flow) return new Response("未找到此仓库或分支的流水线", { status: 404 });
   const res = await fetch(flow.webhook, {
     method: "POST",
-    body: JSON.stringify({ selector: task.selector, notify: flow.notify }),
+    body: JSON.stringify({ selector: task.selector, notify: flow.notify, from: task.from }),
     headers: { "Content-Type": "application/json" },
   });
   const data = await res.json() as FlowWebhookBody;

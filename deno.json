@@ -4,7 +4,7 @@
     ".": "./server.tsx",
     "./deploy": "./deploy.ts"
   },
-  "version": "0.1.13",
+  "version": "0.1.14",
   "license": "MIT",
   "fmt": {
     "lineWidth": 80,
