@@ -1,7 +1,7 @@
 /** @jsxRuntime automatic */
 /** @jsxImportSource npm:preact@10.25.4 */
 
-import hub from "jsr:@trok/trok@0.1.39/hub";
+import hub from "jsr:@trok/trok@0.1.41/hub";
 import { basename } from "jsr:@std/path@^1.0.8";
 import { render } from "npm:preact-render-to-string@^6.5.12";
 import { extname, resolve } from "jsr:@std/path@1.0.8";
@@ -105,8 +105,7 @@ async function dispatch(task: FlowTask) {
 export default {
   async fetch(req: Request): Promise<Response> {
     const { pathname } = new URL(req.url);
-    const res = await hub.fetch(req);
-    if (res.status !== 404) return res;
+
     switch (`${req.method} ${pathname}`) {
       case "GET /flows/": {
         return html(<Flows />);
@@ -132,7 +131,7 @@ export default {
       }
 
       default:
-        return new Response("Not Found", { status: 404 });
+        return await hub.fetch(req);
     }
   },
 };
