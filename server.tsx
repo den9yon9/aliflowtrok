@@ -1,7 +1,7 @@
 /** @jsxRuntime automatic */
 /** @jsxImportSource npm:preact@10.25.4 */
 
-import hub from "jsr:@trok/trok@0.1.41/hub";
+import hub from "jsr:@trok/trok@0.1.42/hub";
 import { basename } from "jsr:@std/path@^1.0.8";
 import { render } from "npm:preact-render-to-string@^6.5.12";
 import { extname, resolve } from "jsr:@std/path@1.0.8";
@@ -127,7 +127,7 @@ export default {
         const origin = data.repository.html_url;
         const branch = basename(data.ref);
         const selector = basename(data.compare);
-        return await dispatch({ origin, branch, selector, from: "@trok/aliflow.github" });
+        return await dispatch({ origin, branch, selector, from: `@trok/aliflow.github.${data.sender.login}` });
       }
 
       default:
